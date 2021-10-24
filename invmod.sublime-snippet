@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+ll invmod(ll b, ll mod){
+  // mod must be a prime
+  return expo(b,mod-2,mod);
+  // else use ext. euclidean
+  // b*x+mod*y=1 if b,mod are co-prime
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>invmod</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

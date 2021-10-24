@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+#define MAX 200005
+// smallest prime factor
+ll spf[MAX];
+void sieve(){
+  ll i,j;
+  for(i=1;i<MAX;i++) spf[i]=i; //init
+  for(i=2;i*i<MAX;++i) if(spf[i]==i) for(j=i*i;j<MAX;j+=i) if(spf[j]==j) spf[j]=i;
+}
+//prime factorization using O(nloglogn) preprocessing-sieve
+// and O(logn) per query. n=MAX.
+void prime_factorise(ll num){
+  while(num>1){
+    ll d=spf[num];
+    // pf[num].insert(d);
+    while(num%d==0) num/=d;
+  }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>prime-factorization-using-spf</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

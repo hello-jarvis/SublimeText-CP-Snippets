@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+// #define MAX 200005
+ll fact[MAX],invfact[MAX];
+void compute(ll mod){
+  fact[0]=1;
+  for(ll i=1;i<MAX;i++) fact[i]=(i*fact[i-1])%mod;
+  invfact[MAX-1]=expo(fact[MAX-1],mod-2,mod);
+  for(ll i=MAX-2;i>=0;i--) invfact[i]=((i+1)*invfact[i+1])%mod;
+}
+ll C(ll n, ll r, ll mod){
+    return (((fact[n]*invfact[r])%mod)*invfact[n-r])%mod;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>compute-fact-inv-mod-nCr</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

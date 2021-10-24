@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+// USE "1-based indexing"
+// memset/loop-init BIT for every test-case
+// update takes delta, NOT final value
+ll BIT[N],n,a[N];
+void update(ll x,ll delta){
+  for(;x<=n;x+=(x&-x)) BIT[x]+=delta;
+}
+ll query(ll x){
+  ll res=0;
+  for(;x>0;x-=(x&-x)) res+=BIT[x];
+  return res;
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>fenwick</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+ll expo(ll base, ll exponent, ll mod=0){
+    //default mod=0 for expo without mod
+    ll ans=1;
+    while(exponent!=0){
+        if((exponent&1) == 1){
+            ans = ans*base ;
+            if(mod) ans = ans%mod;
+        }
+        base = base*base;
+        if(mod) base %= mod;
+        exponent>>= 1;
+    }
+    return (mod?ans%mod:ans);
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>expo</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c,source.c++</scope>
+</snippet>

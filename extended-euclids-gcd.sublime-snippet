@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+//extended_gcd..may TLE i donno
+pair<ll,ll> gcdext(ll a, ll b){
+    // ax+by = gcd(a,b)...then this function returns {x,y}
+    if(!b) return {1LL,0LL};
+    auto tmp = gcdext(b,a%b);
+    return {tmp.S,tmp.F-(a/b)*tmp.S};
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>extended-euclids-gcd</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

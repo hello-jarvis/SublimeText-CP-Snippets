@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+        
+// initialize(n) and define N BEFORE USE
+#define N 200005
+ll rankof[N],parentof[N];
+void initialize(ll initN){
+    for(ll i=0;i<=initN;i++) rankof[i]=1,parentof[i]=i;
+}
+ll root(ll x){
+    //with path compression
+    if(x==parentof[x]) return x;
+    return parentof[x]=root(parentof[x]);
+}
+void combine(ll x, ll y){
+    //union by rank
+    x=root(x); y=root(y);
+    if(x!=y){
+        if(rankof[x]>=rankof[y]) parentof[y]=x,rankof[x]+=rankof[y];
+        else parentof[x]=y,rankof[y]+=rankof[x];
+    }
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dassu</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

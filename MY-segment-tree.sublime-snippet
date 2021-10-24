@@ -1,0 +1,58 @@
+<snippet>
+	<content><![CDATA[
+#define N 100005
+struct data{
+    // multiple objects, multiset, vector etc.
+    //??
+    
+};
+vi a(N);
+vector<data> tree(4*N);
+
+data combine(data leftchild, data rightchild){
+    data res;
+    // main-alterations-here
+    
+
+    return res;
+}
+
+void build(ll node,ll st,ll end){
+    if(st==end){
+        tree[node]=a[st];   //??
+        return;
+    }
+    ll mid=(st+end)>>1;
+    build(2*node,st,mid);
+    build(2*node+1,mid+1,end);
+
+    tree[node]=combine(tree[2*node],tree[2*node+1]);
+}
+
+data query(ll node,ll st,ll end,ll l,ll r){
+    if(l<=st&&r>=end)   return tree[node];
+    if(r<st||l>end){
+        return 0;            //??- !ans - ret a data object
+    }
+    ll mid=(st+end)>>1;
+    data leftans=query(2*node,st,mid,l,r);
+    data rightans=query(2*node+1,mid+1,end,l,r);
+    return combine(leftans,rightans);              
+}
+void update(ll node,ll st,ll end,ll pos,ll upd){
+    if(st==end){
+        a[pos]+=upd;           //?? as per ques
+        tree[node]+=upd;       //?? update the whole data struct
+        return;
+    }
+    ll mid=(st+end)>>1;
+    if(st<=pos&&pos<=mid) update(2*node,st,mid,pos,upd);
+    else update(2*node+1,mid+1,end,pos,upd);
+    tree[node]=combine(tree[2*node],tree[2*node+1]);
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>segtree-MY</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

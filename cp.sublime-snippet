@@ -1,0 +1,52 @@
+<snippet>
+	<content><![CDATA[
+#include<bits/stdc++.h>
+#define ll          long long int
+#define pb          push_back
+#define vi          vector<ll>
+#define all(a)      (a).begin(),(a).end()
+#define F           first
+#define S           second
+#define hell        1000000007
+#define lbnd        lower_bound
+#define ubnd        upper_bound
+#define sll		 set<ll>
+#define msll		multiset<ll>
+#define sz(a)	   (int)((a).size())
+#define io	      ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+using namespace std;
+
+void solve(){
+	ll i,j,${1:}
+
+	
+
+
+
+}
+ 
+int main()
+{
+	#ifndef ONLINE_JUDGE
+	    freopen("input.txt", "r", stdin);
+	    freopen("output.txt", "w", stdout);
+	#endif
+
+	io
+	ll i,j,t;
+	t=1;
+	// cin>>t;
+	while(t--){
+		solve();
+	}
+ 
+	
+ 
+	return 0;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>cp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
